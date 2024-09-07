@@ -1,0 +1,39 @@
+.social__list {
+  @include list();
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 12px;
+}
+
+.social__link {
+  display: block;
+
+  &::before {
+    @include icon-mask(40px,40px);
+    background-color: $icon-color;
+    mask-size: 27px 18px;
+    transition: background-color $time;
+  }
+
+  &:hover::before,
+  &:focus-visible::before {
+    background-color: $icon-color-hover;
+  }
+
+  &:active::before {
+    background-color: $icon-color-active;
+  }
+}
+
+.social__link--icon-vk::before {
+  @include icon-mask-image("vk");
+}
+
+.social__link--icon-yt::before {
+  @include icon-mask-image("yt");
+}
+
+.social__link--icon-tg::before {
+  @include icon-mask-image("tg");
+}
